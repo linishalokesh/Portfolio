@@ -1,0 +1,1458 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Linisha's personal portfolio.">
+    <title>Meraki — Linisha's Portfolio</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+
+    <style>
+
+        :root {
+            --bg: #f8f4f1;
+            --yellow: #f8d34e;
+            --pink: #eb4d91;
+            --lavender: #d9b9e8;
+            --peach: #ffdfbd;
+            --blue: #7998ee;
+            --black: #191919;
+            --white: #fffdfb;
+            --burgundy: #633044;
+            --muted: #817477;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--black);
+            font-family: 'Nunito', sans-serif;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button {
+            font: inherit;
+        }
+
+        section {
+            padding: 100px 9%;
+            scroll-margin-top: 85px;
+        }
+
+        .section-heading {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(34px, 5vw, 55px);
+            font-weight: 700;
+            line-height: 1.2;
+            margin: 12px 0 18px;
+        }
+
+        .section-label {
+            font-size: 12px;
+            font-weight: 900;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .section-intro {
+            color: #68615f;
+            max-width: 650px;
+            margin-bottom: 40px;
+            font-size: 16px;
+        }
+
+        .highlight {
+            display: inline-block;
+            background: var(--lavender);
+            border: 2px solid var(--black);
+            border-radius: 12px;
+            padding: 2px 13px 5px;
+            box-shadow: 3px 4px 0 var(--black);
+            transform: rotate(-1deg);
+        }
+
+
+        /* =========================
+           MERAKI LANDING PAGE
+        ========================= */
+
+        .landing-page {
+            min-height: 100vh;
+            background: var(--bg);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 70px 8%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .landing-content {
+            max-width: 1000px;
+            animation: appear 1s ease;
+            position: relative;
+            z-index: 2;
+        }
+
+        .landing-label {
+            color: var(--pink);
+            font-size: 15px;
+            font-weight: 900;
+            letter-spacing: 5px;
+            margin-bottom: 30px;
+        }
+
+        .landing-content h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(85px, 14vw, 165px);
+            font-weight: 900;
+            color: var(--lavender);
+            -webkit-text-stroke: 2px var(--black);
+            text-shadow: 7px 8px 0 var(--black);
+            margin-bottom: 35px;
+            line-height: 1.1;
+        }
+
+        .landing-content h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(20px, 3vw, 30px);
+            font-weight: 800;
+            margin-bottom: 25px;
+        }
+
+        .landing-description {
+            max-width: 850px;
+            margin: 0 auto;
+            color: var(--muted);
+            font-size: clamp(15px, 2vw, 21px);
+            line-height: 1.8;
+        }
+
+        .landing-button {
+            display: inline-block;
+            margin-top: 42px;
+            background: var(--pink);
+            color: white;
+            border: 2px solid var(--black);
+            border-radius: 50px;
+            padding: 18px 35px;
+            font-size: 17px;
+            font-weight: 900;
+            box-shadow: 4px 5px 0 var(--black);
+            transition: 0.25s;
+        }
+
+        .landing-button:hover {
+            background: var(--yellow);
+            color: var(--black);
+            transform: translateY(-5px);
+            box-shadow: 5px 8px 0 var(--black);
+        }
+
+        .landing-quote {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(16px, 2vw, 23px);
+            font-weight: 600;
+            font-style: italic;
+            color: var(--burgundy);
+            margin-top: 60px;
+        }
+
+        .landing-decoration {
+            display: flex;
+            justify-content: center;
+            gap: 35px;
+            margin-top: 45px;
+            font-size: 28px;
+        }
+
+        .landing-decoration span:nth-child(1) {
+            color: var(--pink);
+        }
+
+        .landing-decoration span:nth-child(2) {
+            color: var(--lavender);
+        }
+
+        .landing-decoration span:nth-child(3) {
+            color: #e5ae42;
+        }
+
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+
+        .navbar {
+            display: none;
+            position: sticky;
+            top: 12px;
+            z-index: 1000;
+            width: 92%;
+            max-width: 1250px;
+            margin: 12px auto 0;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .navbar.show {
+            display: flex;
+            animation: appear 0.5s ease;
+        }
+
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 32px;
+            font-weight: 900;
+            color: var(--lavender);
+            -webkit-text-stroke: 1.5px var(--black);
+            text-shadow: 2px 3px 0 var(--black);
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            background: var(--yellow);
+            border: 2px solid var(--black);
+            border-radius: 40px;
+            padding: 14px 27px;
+            box-shadow: 3px 4px 0 var(--black);
+        }
+
+        .nav-links a {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            transition: 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--pink);
+            transform: translateY(-2px);
+        }
+
+        .menu-btn {
+            display: none;
+            border: 2px solid var(--black);
+            background: var(--lavender);
+            border-radius: 50%;
+            width: 43px;
+            height: 43px;
+            font-size: 20px;
+            cursor: pointer;
+            box-shadow: 2px 3px 0 var(--black);
+        }
+
+
+        /* =========================
+           ABOUT ME
+        ========================= */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.3fr 0.7fr;
+            align-items: center;
+            gap: 45px;
+        }
+
+        .about-text p {
+            font-size: 16px;
+            line-height: 1.9;
+            color: #625b59;
+            margin-bottom: 18px;
+        }
+
+        .about-card {
+            background: var(--lavender);
+            border: 2px solid var(--black);
+            border-radius: 25px;
+            padding: 35px 25px;
+            text-align: center;
+            box-shadow: 6px 7px 0 var(--black);
+            transform: rotate(2deg);
+        }
+
+        .about-card .initial {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 90px;
+            font-weight: 900;
+        }
+
+        .about-card h3 {
+            font-size: 25px;
+            font-weight: 900;
+        }
+
+        .about-card p {
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .about-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 22px;
+        }
+
+        .about-tags span {
+            background: var(--yellow);
+            border: 1.5px solid var(--black);
+            border-radius: 30px;
+            padding: 7px 15px;
+            font-size: 13px;
+            font-weight: 800;
+        }
+
+
+        /* =========================
+           TECHNOLOGY STRIP
+        ========================= */
+
+        .tech-strip {
+            background: var(--peach);
+            padding: 25px 5%;
+            border-top: 2px solid var(--black);
+            border-bottom: 2px solid var(--black);
+        }
+
+        .tech-items {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 22px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 900;
+            font-size: 19px;
+        }
+
+        .tech-items span {
+            transition: 0.2s;
+        }
+
+        .tech-items span:hover {
+            color: var(--pink);
+            transform: scale(1.15);
+        }
+
+
+        /* =========================
+           SKILLS
+        ========================= */
+
+        .skills-section {
+            background: var(--yellow);
+            border-top: 2px solid var(--black);
+            border-bottom: 2px solid var(--black);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: var(--white);
+            border: 2px solid var(--black);
+            border-radius: 18px;
+            padding: 25px;
+            box-shadow: 4px 5px 0 var(--black);
+            transition: 0.25s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-6px);
+        }
+
+        .skill-card h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 20px;
+            margin-bottom: 12px;
+        }
+
+        .skill-card p {
+            font-size: 14px;
+            color: #625b59;
+            line-height: 1.8;
+        }
+
+        .skill-icon {
+            font-size: 28px;
+            margin-bottom: 12px;
+        }
+
+
+        /* =========================
+           PROJECTS
+        ========================= */
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .project-card {
+            background: var(--white);
+            border: 2px solid var(--black);
+            border-radius: 20px;
+            padding: 28px;
+            box-shadow: 4px 5px 0 var(--black);
+            transition: 0.25s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 6px 9px 0 var(--black);
+        }
+
+        .project-number {
+            font-size: 12px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            color: var(--pink);
+        }
+
+        .project-card h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 23px;
+            margin: 12px 0;
+        }
+
+        .project-card p {
+            color: #625b59;
+            font-size: 14px;
+            line-height: 1.8;
+            margin-bottom: 18px;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .project-tags span {
+            background: var(--lavender);
+            border: 1.5px solid var(--black);
+            border-radius: 20px;
+            padding: 6px 12px;
+            font-size: 11px;
+            font-weight: 900;
+        }
+
+        .project-card:nth-child(2) {
+            background: #fff0df;
+        }
+
+        .project-card:nth-child(3) {
+            background: #f2e7f7;
+        }
+
+        .project-card:nth-child(4) {
+            background: #fff0f5;
+        }
+
+
+        /* =========================
+           INTERESTS
+        ========================= */
+
+        .interests-section {
+            background: var(--peach);
+            border-top: 2px solid var(--black);
+            border-bottom: 2px solid var(--black);
+        }
+
+        .interests-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .interest-card {
+            background: var(--white);
+            border: 2px solid var(--black);
+            border-radius: 20px;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 4px 5px 0 var(--black);
+            transition: 0.25s;
+        }
+
+        .interest-card:hover {
+            transform: rotate(-2deg) translateY(-5px);
+        }
+
+        .interest-icon {
+            font-size: 42px;
+            margin-bottom: 12px;
+        }
+
+        .interest-card h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 22px;
+        }
+
+        .interest-card p {
+            color: #625b59;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+
+        /* =========================
+           CAREER GOALS
+        ========================= */
+
+        .goals-box {
+            max-width: 850px;
+            background: var(--lavender);
+            border: 2px solid var(--black);
+            border-radius: 20px;
+            padding: 35px;
+            box-shadow: 5px 6px 0 var(--black);
+        }
+
+        .goals-box p {
+            font-size: 15px;
+            line-height: 1.9;
+            margin-bottom: 15px;
+        }
+
+        .goal-list {
+            margin: 15px 0 0 20px;
+            line-height: 2;
+            font-weight: 700;
+        }
+
+
+        /* =========================
+           CONTACT
+        ========================= */
+
+        .contact-section {
+            background: var(--pink);
+            border-top: 2px solid var(--black);
+            text-align: center;
+        }
+
+        .contact-section .section-intro {
+            margin: 0 auto 30px;
+            color: #39242d;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .social-links a {
+            background: var(--yellow);
+            border: 2px solid var(--black);
+            border-radius: 30px;
+            padding: 12px 25px;
+            font-weight: 900;
+            box-shadow: 3px 4px 0 var(--black);
+            transition: 0.2s;
+        }
+
+        .social-links a:hover {
+            background: var(--lavender);
+            transform: translateY(-3px);
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: var(--black);
+            color: white;
+            text-align: center;
+            padding: 23px;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+
+        /* =========================
+           SCROLL ANIMATIONS
+        ========================= */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(25px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+
+        /* =========================
+           RESPONSIVE DESIGN
+        ========================= */
+
+        @media (max-width: 850px) {
+
+            .navbar {
+                width: 90%;
+            }
+
+            .nav-links {
+                gap: 15px;
+                padding: 12px 18px;
+            }
+
+            .nav-links a {
+                font-size: 12px;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-card {
+                max-width: 350px;
+                margin: 0 auto;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+
+        @media (max-width: 650px) {
+
+            .navbar {
+                top: 8px;
+                margin-top: 8px;
+            }
+
+            .logo {
+                font-size: 27px;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 58px;
+                right: 0;
+                width: 220px;
+                flex-direction: column;
+                align-items: stretch;
+                border-radius: 18px;
+                padding: 20px;
+                gap: 15px;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .landing-page {
+                min-height: 100svh;
+                padding: 60px 7%;
+            }
+
+            .landing-label {
+                font-size: 11px;
+                letter-spacing: 3px;
+            }
+
+            .landing-content h1 {
+                font-size: 75px;
+            }
+
+            .landing-content h2 {
+                font-size: 20px;
+            }
+
+            .landing-description {
+                font-size: 15px;
+            }
+
+            .landing-button {
+                padding: 16px 27px;
+                font-size: 15px;
+            }
+
+            .landing-quote {
+                margin-top: 40px;
+                font-size: 17px;
+            }
+
+            section {
+                padding: 75px 7%;
+            }
+
+            .skills-grid,
+            .projects-grid,
+            .interests-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tech-items {
+                font-size: 15px;
+            }
+
+            .goals-box {
+                padding: 24px;
+            }
+        }
+
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+
+            .reveal {
+                opacity: 1;
+                transform: none;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         WELCOME / LANDING PAGE
+    ========================= -->
+
+    <section class="landing-page" id="home">
+
+        <div class="landing-content">
+
+            <p class="landing-label">
+                A LITTLE WORLD OF MY OWN
+            </p>
+
+            <h1>Meraki.</h1>
+
+            <h2>
+                Hi, I'm Linisha — an aspiring developer.
+            </h2>
+
+            <p class="landing-description">
+                A curious mind exploring technology, a creative soul
+                finding inspiration everywhere, and a constant learner
+                excited about what comes next.
+            </p>
+
+            <a href="#about" class="landing-button" id="enterPortfolio">
+                Discover my world ↗
+            </a>
+
+            <p class="landing-quote">
+                “A curious mind, a creative soul, and a determination to keep growing.”
+            </p>
+
+            <div class="landing-decoration">
+                <span>✳</span>
+                <span>♡</span>
+                <span>✦</span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         NAVIGATION
+    ========================= -->
+
+    <header class="navbar" id="navbar">
+
+        <a href="#about" class="logo">MERAKI.</a>
+
+        <button class="menu-btn" id="menuBtn"
+                aria-label="Toggle navigation"
+                aria-expanded="false">
+            ☰
+        </button>
+
+        <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+
+            <a href="#about">ABOUT</a>
+            <a href="#skills">MY STACK</a>
+            <a href="#projects">PROJECTS</a>
+            <a href="#interests">BEYOND CODE</a>
+            <a href="#goals">GOALS</a>
+            <a href="#contact">CONTACT</a>
+
+        </nav>
+
+    </header>
+
+
+
+    <main>
+
+
+        <!-- TECHNOLOGY STRIP -->
+
+        <div class="tech-strip">
+
+            <div class="tech-items">
+                <span>C</span>
+                <span>C++</span>
+                <span>PYTHON</span>
+                <span>JAVA</span>
+                <span>HTML5</span>
+                <span>CSS3</span>
+                <span>MYSQL</span>
+                <span>GIT</span>
+                <span>AI / ML</span>
+            </div>
+
+        </div>
+
+
+
+        <!-- =========================
+             ABOUT ME
+        ========================= -->
+
+        <section id="about">
+
+            <div class="reveal">
+
+                <p class="section-label">
+                    01 — GET TO KNOW ME
+                </p>
+
+                <h2 class="section-heading">
+                    More than just <span class="highlight">code.</span>
+                </h2>
+
+            </div>
+
+
+            <div class="about-grid reveal">
+
+                <div class="about-text">
+
+                    <p>
+                        Hey! I'm Linisha, a 19-year-old Computer Engineering
+                        student at BMS Institute of Technology and Management.
+                        With a CGPA of 9.90, I enjoy challenging myself
+                        academically while exploring the world of technology.
+                    </p>
+
+                    <p>
+                        I'm curious, imaginative and a little bit of a
+                        perfectionist. I love learning new things, experimenting
+                        with ideas and paying attention to the little details
+                        that make a difference.
+                    </p>
+
+                    <p>
+                        My interests lie in artificial intelligence, emerging
+                        technologies and full-stack development. I enjoy
+                        combining logical thinking with creativity to build
+                        things that are both useful and meaningful.
+                    </p>
+
+                    <div class="about-tags">
+
+                        <span>Curious Learner</span>
+                        <span>Creative Thinker</span>
+                        <span>Problem Solver</span>
+                        <span>Detail-Oriented</span>
+
+                    </div>
+
+                </div>
+
+
+                <aside class="about-card">
+
+                    <div class="initial">L.</div>
+
+                    <h3>Linisha</h3>
+
+                    <p>19 Years Old</p>
+
+                    <p>Computer Engineering Student</p>
+
+                    <p>BMS Institute of Technology & Management</p>
+
+                    <p><strong>CGPA: 9.90</strong></p>
+
+                    <p style="margin-top: 18px;">
+                        Meraki — putting your soul, creativity and love
+                        into everything you do.
+                    </p>
+
+                </aside>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             SKILLS
+        ========================= -->
+
+        <section class="skills-section" id="skills">
+
+            <div class="reveal">
+
+                <p class="section-label">
+                    02 — MY TOOLKIT
+                </p>
+
+                <h2 class="section-heading">
+                    Things I <span class="highlight">work with.</span>
+                </h2>
+
+                <p class="section-intro">
+                    A growing collection of technologies and skills
+                    that I'm learning and putting into practice.
+                </p>
+
+            </div>
+
+
+            <div class="skills-grid reveal">
+
+                <article class="skill-card">
+
+                    <div class="skill-icon">💻</div>
+
+                    <h3>Programming</h3>
+
+                    <p>
+                        C, C++, Python and Java fundamentals.
+                    </p>
+
+                </article>
+
+
+                <article class="skill-card">
+
+                    <div class="skill-icon">🌐</div>
+
+                    <h3>Web Development</h3>
+
+                    <p>
+                        HTML, CSS, JavaScript and Node.js project experience.
+                    </p>
+
+                </article>
+
+
+                <article class="skill-card">
+
+                    <div class="skill-icon">🗄️</div>
+
+                    <h3>Databases</h3>
+
+                    <p>
+                        MySQL, MariaDB and JDBC.
+                    </p>
+
+                </article>
+
+
+                <article class="skill-card">
+
+                    <div class="skill-icon">🤖</div>
+
+                    <h3>Emerging Tech</h3>
+
+                    <p>
+                        Artificial Intelligence, Machine Learning and LLMs.
+                    </p>
+
+                </article>
+
+
+                <article class="skill-card">
+
+                    <div class="skill-icon">⚙️</div>
+
+                    <h3>Tools & Platforms</h3>
+
+                    <p>
+                        Git, GitHub, VS Code, Arduino and ESP32.
+                    </p>
+
+                </article>
+
+
+                <article class="skill-card">
+
+                    <div class="skill-icon">✨</div>
+
+                    <h3>Soft Skills</h3>
+
+                    <p>
+                        Teamwork, leadership, creativity and problem-solving.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             PROJECTS
+        ========================= -->
+
+        <section id="projects">
+
+            <div class="reveal">
+
+                <p class="section-label">
+                    03 — MY WORK
+                </p>
+
+                <h2 class="section-heading">
+                    Ideas turned into <span class="highlight">projects.</span>
+                </h2>
+
+                <p class="section-intro">
+                    A few things I've explored, designed and developed
+                    during my engineering journey.
+                </p>
+
+            </div>
+
+
+            <div class="projects-grid reveal">
+
+
+                <article class="project-card">
+
+                    <span class="project-number">PROJECT 01</span>
+
+                    <h3>AdminNova</h3>
+
+                    <p>
+                        An AI-driven college administrative request management
+                        system designed to help students track requests and
+                        assess potential processing delays using predictive
+                        monitoring.
+                    </p>
+
+                    <div class="project-tags">
+                        <span>Python</span>
+                        <span>Flask</span>
+                        <span>MySQL</span>
+                        <span>Machine Learning</span>
+                    </div>
+
+                </article>
+
+
+                <article class="project-card">
+
+                    <span class="project-number">PROJECT 02</span>
+
+                    <h3>University Student Management System</h3>
+
+                    <p>
+                        A Java desktop application for managing student
+                        information, with database connectivity and
+                        CRUD operations for handling records.
+                    </p>
+
+                    <div class="project-tags">
+                        <span>Java</span>
+                        <span>Java Swing</span>
+                        <span>JDBC</span>
+                        <span>MariaDB</span>
+                    </div>
+
+                </article>
+
+
+                <article class="project-card">
+
+                    <span class="project-number">PROJECT 03</span>
+
+                    <h3>Pharmacy DBMS</h3>
+
+                    <p>
+                        A pharmacy database management project that combines
+                        a web interface with backend services and a relational
+                        database.
+                    </p>
+
+                    <div class="project-tags">
+                        <span>MySQL</span>
+                        <span>Node.js</span>
+                        <span>Express</span>
+                        <span>HTML / CSS / JS</span>
+                    </div>
+
+                </article>
+
+
+                <article class="project-card">
+
+                    <span class="project-number">PROJECT 04</span>
+
+                    <h3>Library Noise Monitoring System</h3>
+
+                    <p>
+                        A group project focused on monitoring noise levels
+                        across library zones, with digital alerts and
+                        role-based access for students and librarians.
+                    </p>
+
+                    <div class="project-tags">
+                        <span>Node.js</span>
+                        <span>Express</span>
+                        <span>MongoDB</span>
+                        <span>RBAC</span>
+                    </div>
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             BEYOND CODING / HOBBIES
+        ========================= -->
+
+        <section class="interests-section" id="interests">
+
+            <div class="reveal">
+
+                <p class="section-label">
+                    04 — LIFE OUTSIDE CODE
+                </p>
+
+                <h2 class="section-heading">
+                    A little bit of <span class="highlight">everything.</span>
+                </h2>
+
+                <p class="section-intro">
+                    Because there's more to me than programming!
+                </p>
+
+            </div>
+
+
+            <div class="interests-grid reveal">
+
+
+                <article class="interest-card">
+
+                    <div class="interest-icon">🏋🏻‍♀️</div>
+
+                    <h3>Fitness</h3>
+
+                    <p>
+                        Strength training, working out and constantly
+                        challenging myself to get stronger.
+                    </p>
+
+                </article>
+
+
+                <article class="interest-card">
+
+                    <div class="interest-icon">📚</div>
+
+                    <h3>Reading</h3>
+
+                    <p>
+                        Exploring different genres, discovering stories
+                        and finding new perspectives through books.
+                    </p>
+
+                </article>
+
+
+                <article class="interest-card">
+
+                    <div class="interest-icon">🎨</div>
+
+                    <h3>Painting</h3>
+
+                    <p>
+                        Acrylics, watercolours, canvas painting and sketching.
+                        A little creativity is always welcome!
+                    </p>
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             CAREER GOALS
+        ========================= -->
+
+        <section id="goals">
+
+            <div class="reveal">
+
+                <p class="section-label">
+                    05 — WHAT'S NEXT?
+                </p>
+
+                <h2 class="section-heading">
+                    Still learning. <span class="highlight">Always growing.</span>
+                </h2>
+
+            </div>
+
+
+            <div class="goals-box reveal">
+
+                <p>
+                    I believe that growth comes from staying curious,
+                    being open to new experiences and never being afraid
+                    to start learning something new.
+                </p>
+
+                <p>
+                    My long-term goal is to pursue a master's degree abroad
+                    and build a career where I can combine technology,
+                    creativity and problem-solving.
+                </p>
+
+                <strong>Some things I'm working towards:</strong>
+
+                <ul class="goal-list">
+
+                    <li>Pursuing higher education abroad.</li>
+
+                    <li>Becoming a Full-Stack Developer or Data Science Engineer.</li>
+
+                    <li>Exploring AI, LLMs and emerging technologies.</li>
+
+                    <li>Building projects that solve real-world problems.</li>
+
+                </ul>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             CONTACT
+        ========================= -->
+
+        <section class="contact-section" id="contact">
+
+            <div class="reveal">
+
+                <p class="section-label">
+                    06 — SAY HELLO
+                </p>
+
+                <h2 class="section-heading">
+                    Let's make something <span class="highlight">happen!</span>
+                </h2>
+
+                <p class="section-intro">
+                    Always open to learning, collaborating and connecting
+                    with people who love building interesting things.
+                </p>
+
+
+                <div class="social-links">
+
+                    <a href="https://github.com/linishalokesh"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        GitHub ↗
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/linisha-lokesh-0bb224335/"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        LinkedIn ↗
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        <p>
+            Designed with curiosity, creativity & a little bit of Meraki ♡
+        </p>
+
+        <p>
+            © 2026 Linisha. All rights reserved.
+        </p>
+
+    </footer>
+
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
+
+    <script>
+
+        // Reveal navigation and enter the portfolio
+
+        const enterPortfolio = document.getElementById("enterPortfolio");
+        const navbar = document.getElementById("navbar");
+
+        enterPortfolio.addEventListener("click", function () {
+
+            navbar.classList.add("show");
+
+        });
+
+
+        // Mobile navigation menu
+
+        const menuBtn = document.getElementById("menuBtn");
+        const navLinks = document.getElementById("navLinks");
+
+        menuBtn.addEventListener("click", function () {
+
+            const isOpen = navLinks.classList.toggle("active");
+
+            menuBtn.setAttribute("aria-expanded", isOpen);
+
+            menuBtn.textContent = isOpen ? "×" : "☰";
+
+        });
+
+
+        // Close mobile menu after selecting a section
+
+        document.querySelectorAll(".nav-links a").forEach(function (link) {
+
+            link.addEventListener("click", function () {
+
+                navLinks.classList.remove("active");
+
+                menuBtn.setAttribute("aria-expanded", "false");
+
+                menuBtn.textContent = "☰";
+
+            });
+
+        });
+
+
+        // Reveal sections when scrolling
+
+        const observer = new IntersectionObserver(function (entries) {
+
+            entries.forEach(function (entry) {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add("visible");
+
+                    observer.unobserve(entry.target);
+
+                }
+
+            });
+
+        }, {
+            threshold: 0.12
+        });
+
+
+        document.querySelectorAll(".reveal").forEach(function (element) {
+
+            observer.observe(element);
+
+        });
+
+    </script>
+
+</body>
+
+</html>
